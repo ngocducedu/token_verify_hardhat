@@ -13,7 +13,19 @@ npx hardhat node
 node scripts/sample-script.js
 npx hardhat help
 ```
-
+Code hardhat script: 
+./scripts/ sample-script.js
+Theo thứ tự: deploy CommonTokenCreate.sol  => được address của contract tạo token này
+=> tiếp theo deploy TokenFactory.sol  (truyền address của contract CommonTokenCreate)
+  await tokenFactory.setCommonTokenContract("0x31503d3E379352E5FB1c1d5644c44cb30075274a");
+  
+ => Tạo thử 1 token từ: await tokenFactory.factoryCommonToken("HKTHardhat Token","HKTHH",18,10000);
+ => tiêp theo phải lấy đc address của token mới tạo
+ => lưu arguments vào ./arguments.js
+ 
+ Rồi sử dụng command verify ở dưới
+ 
+ 
 
 
 -- Deploy contract
