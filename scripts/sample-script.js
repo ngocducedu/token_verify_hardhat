@@ -32,10 +32,10 @@ async function main() {
 
   console.log("CommonToken address:", tokenFactory.address);
 
-  // await hre.run("verify:verify", {
-  //   address: "0xa351b9011d1f1b51fdfa991e531ed874fc9f914c",
-  //   constructorArguments: ["CCCCTOKEN","CCCC",18,10000],
-  // })
+  await hre.run("verify:verify", {
+    address: "0xa351b9011d1f1b51fdfa991e531ed874fc9f914c",
+    constructorArguments: ["CCCCTOKEN","CCCC",18,10000],
+  })
 }
 
 // We recommend this pattern to be able to use async/await everywhere
