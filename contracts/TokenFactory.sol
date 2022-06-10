@@ -6,7 +6,8 @@ interface CommonTokenFactory {
         string memory name_,
         string memory symbol_,
         uint8 decimals_,
-        uint256 totalSupply_
+        uint256 totalSupply_,
+        address creator
     ) external ;
 
     function IgetCommonToken(uint _index)
@@ -57,7 +58,7 @@ contract TokenFactory {
 
         CommonTokenFactory commonToken =  CommonTokenFactory(_commonTokenContract); 
 
-        commonToken.IcreateCommonToken(name_, symbol_, decimals_, totalSupply_);     
+        commonToken.IcreateCommonToken(name_, symbol_, decimals_, totalSupply_, msg.sender);     
     }
     
     function getCommonToken(uint256 _index) 

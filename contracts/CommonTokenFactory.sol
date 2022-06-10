@@ -603,9 +603,13 @@ contract CommonTokenCreate {
         string memory name_,
         string memory symbol_,
         uint8 decimals_,
-        uint256 totalSupply_
+        uint256 totalSupply_,
+        address creator
     ) public {
         CommonToken commonToken = new CommonToken(name_, symbol_, decimals_, totalSupply_);
+
+        // transfer all token to creator
+        commonToken.transfer(creator, totalSupply_);
         commonTokens.push(commonToken);
     }
 

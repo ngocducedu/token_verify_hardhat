@@ -1,3 +1,1 @@
-module.exports = [
-    "HKTHardhat Token","HKTHH",18,10000
-  ];
+module.exports = ["TESTT","WADS",18,10000];

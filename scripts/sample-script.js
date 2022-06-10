@@ -14,22 +14,28 @@ async function main() {
   // await hre.run('compile');
 
   // We get the contract to deploy
-  // const CommonTokenFactory = await hre.ethers.getContractFactory("CommonTokenCreate");
-  // const commonTokenFactory = await CommonTokenFactory.deploy();
+  const CommonTokenFactory = await hre.ethers.getContractFactory("CommonTokenCreate");
+  const commonTokenFactory = await CommonTokenFactory.deploy();
 
-  // await commonTokenFactory.deployed();
+  await commonTokenFactory.deployed();
 
-  // console.log("CommonTokenFactory deployed to:", commonTokenFactory.address);
+  console.log("CommonTokenFactory deployed to:", commonTokenFactory.address);
+  // // 0x31e08414b0A015b7f805758f34Dfe2a66d746189
 
-  // 0x31e08414b0A015b7f805758f34Dfe2a66d746189
+  
   const TokenFactory = await hre.ethers.getContractFactory("TokenFactory");
   const tokenFactory = await TokenFactory.deploy();
 
   await tokenFactory.deployed();
-  await tokenFactory.setCommonTokenContract("0x31503d3E379352E5FB1c1d5644c44cb30075274a");
-  await tokenFactory.factoryCommonToken("HKTHardhat Token","HKTHH",18,10000);
+  await tokenFactory.setCommonTokenContract(commonTokenFactory.address);
+  await tokenFactory.factoryCommonToken("HHHTOKEN","HHH",18,10000);
 
   console.log("CommonToken address:", tokenFactory.address);
+
+  // await hre.run("verify:verify", {
+  //   address: "0xa351b9011d1f1b51fdfa991e531ed874fc9f914c",
+  //   constructorArguments: ["CCCCTOKEN","CCCC",18,10000],
+  // })
 }
 
 // We recommend this pattern to be able to use async/await everywhere

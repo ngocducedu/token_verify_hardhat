@@ -36,7 +36,7 @@ module.exports = {
     artifacts: './artifacts',
   },
   solidity: {
-    version: '0.8.6',
+    version: '0.8.7',
     settings: {
       optimizer: {
         enabled: true,
@@ -73,13 +73,11 @@ module.exports = {
    //      timeoutBlocks: 1000,
    //      skipDryRun: true,
    //  },
-  //   'bsc-testnet': {
-  //      provider: () => new PrivateKeyProvider(process.env["ADMIN_BSC_PRIVKEY"], `https://data-seed-prebsc-1-s2.binance.org:8545`),
-  //      network_id: 97,
-  //      confirmations: 2,
-  //      timeoutBlocks: 1000,
-  //      skipDryRun: true,
-  //  },
+    'bsc-testnet': {
+      url: `https://data-seed-prebsc-2-s1.binance.org:8545`,
+      accounts: {mnemonic: "tooth swim useless range wing clever vocal brave half exact same leaf"},
+      gas: 5500000,
+   },
     // 'bsc-mainnet': {
     //     provider: () => new HDWalletProvider(binanceMnemonic, `https://bsc-dataseed.binance.org/`),
     //     network_id: 56,
@@ -125,9 +123,7 @@ module.exports = {
    'eth-rinkeby': {
     url: "https://rinkeby.infura.io/v3/992c21228e694d0898f3ff894bc3d86e",
     // accounts: [process.env.ADMIN_ETH_PRIVKEY],
-    accounts: {
-      mnemonic: "vague search original fit dish equip arch junior fluid size three shaft",
-    },
+    accounts: ["9dd97cf6fcc4a23bf53e42694242abc5fef921aa84ad7eb151c7cbef4bd4d6bf"],
     gas: 2100000,
     gasPrice: 8000000000,
     saveDeployments: true,
@@ -151,6 +147,10 @@ module.exports = {
   etherscan: {
     // Your API key for Etherscan
     // Obtain one at https://etherscan.io/
-    apiKey: process.env.ETHERSCAN_API_KEY
-  }
+    // apiKey: process.env.ETHERSCAN_API_KEY,
+
+    // Your API key for Etherscan
+    // Obtain one at https://bscscan.com/
+    apiKey: process.env.BSCSCAN_API_KEY,
+  },
 };
